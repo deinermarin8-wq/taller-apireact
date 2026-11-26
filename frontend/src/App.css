@@ -1,0 +1,151 @@
+main {
+  width: min(100% - 2rem, 680px);
+  margin: clamp(3rem, 10vh, 7rem) auto;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  box-sizing: border-box;
+  text-align: left;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+main h1 {
+  margin: 0 0 2rem;
+  font-size: clamp(2rem, 7vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+}
+
+main form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+main label {
+  grid-column: 1 / -1;
+  color: var(--text-h);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+main input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  box-sizing: border-box;
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font: inherit;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+main input::placeholder {
+  color: var(--text);
+  opacity: 0.7;
+}
+
+main input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-bg);
+}
+
+main input:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+main button {
+  min-height: 3.15rem;
+  padding: 0.75rem 1.2rem;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
+}
+
+main button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+main button:focus-visible {
+  outline: 3px solid var(--accent-border);
+  outline-offset: 3px;
+}
+
+main button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+main p[role='status'] {
+  min-height: 1.5em;
+  margin: 1rem 0;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+main ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main li {
+  position: relative;
+  padding: 0.9rem 1rem 0.9rem 2.6rem;
+  overflow-wrap: anywhere;
+  color: var(--text-h);
+  background: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+main li::before {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  content: '';
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 480px) {
+  main {
+    width: min(100% - 1.25rem, 680px);
+    margin: 1.5rem auto;
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+
+  main form {
+    grid-template-columns: 1fr;
+  }
+
+  main label {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main *,
+  main *::before,
+  main *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
